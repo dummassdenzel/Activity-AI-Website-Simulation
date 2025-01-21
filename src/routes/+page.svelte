@@ -44,34 +44,45 @@
     }
 </script>
 
-<main class="container">
-    <h1>Chungmyung Hospital AI Assistant</h1>
-    <p class="intro">Hello! I'm here to help answer your questions about our hospital. You can ask about:</p>
-    <ul class="topics">
-        <li>Hospital hours</li>
-        <li>Parking information</li>
-        <li>Appointment scheduling</li>
-        <li>Insurance coverage</li>
-        <li>COVID-19 policies</li>
-        <li>Visiting hours</li>
+<main class="max-w-3xl mx-auto p-5">
+    <h1 class="text-3xl font-bold text-slate-700 text-center mb-4">Chungmyung Hospital AI Assistant</h1>
+    <p class="text-center text-slate-600 mb-4">Hello! I'm here to help answer your questions about our hospital. You can ask about:</p>
+    
+    <ul class="flex flex-wrap justify-center gap-2 mb-6">
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">Hospital hours</li>
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">Parking information</li>
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">Appointment scheduling</li>
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">Insurance coverage</li>
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">COVID-19 policies</li>
+        <li class="bg-blue-50 px-4 py-1.5 rounded-full text-sm text-slate-700">Visiting hours</li>
     </ul>
 
-    <div class="chat-container">
+    <div class="h-[400px] overflow-y-auto border border-gray-200 rounded-lg p-5 bg-gray-50 mb-6">
         {#each messages as message}
-            <div class="message {message.isUser ? 'user' : 'bot'}">
-                {message.text}
+            <div class="mb-3 {message.isUser ? 'ml-auto' : 'mr-auto'} max-w-[80%]">
+                <div class="{message.isUser ? 
+                    'bg-blue-500 text-white ml-auto' : 
+                    'bg-blue-50 text-slate-700'} 
+                    p-3 rounded-lg inline-block">
+                    {message.text}
+                </div>
             </div>
         {/each}
     </div>
 
-    <form on:submit|preventDefault={handleSubmit} class="input-form">
+    <form on:submit|preventDefault={handleSubmit} class="flex gap-3">
         <input 
             type="text" 
             bind:value={userInput} 
             placeholder="Type your question here..."
-            class="input-field"
+            class="flex-1 px-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-        <button type="submit" class="send-button">Send</button>
+        <button 
+            type="submit" 
+            class="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+            Send
+        </button>
     </form>
 </main>
 
