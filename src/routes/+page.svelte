@@ -45,7 +45,7 @@
 </script>
 
 <main class="max-w-3xl mx-auto p-5">
-    <h1 class="text-3xl font-bold text-slate-700 text-center mb-4">Chungmyung Hospital AI Assistant</h1>
+    <h1 class="text-3xl font-bold text-slate-700 text-center mb-4">Olongapo City Hospital AI Assistant</h1>
     <p class="text-center text-slate-600 mb-4">Hello! I'm here to help answer your questions about our hospital. You can ask about:</p>
     
     <ul class="flex flex-wrap justify-center gap-2 mb-6">
@@ -59,11 +59,11 @@
 
     <div class="h-[400px] overflow-y-auto border border-gray-200 rounded-lg p-5 bg-gray-50 mb-6">
         {#each messages as message}
-            <div class="mb-3 {message.isUser ? 'ml-auto' : 'mr-auto'} max-w-[80%]">
+            <div class="mb-3 flex {message.isUser ? 'justify-end' : 'justify-start'}">
                 <div class="{message.isUser ? 
-                    'bg-blue-500 text-white ml-auto' : 
+                    'bg-blue-500 text-white' : 
                     'bg-blue-50 text-slate-700'} 
-                    p-3 rounded-lg inline-block">
+                    p-3 rounded-lg inline-block max-w-[80%]">
                     {message.text}
                 </div>
             </div>
